@@ -1,0 +1,32 @@
+#home-nav {
+    background-color: #263D5C;
+    position: relative;
+    top: 0;
+    padding: 0px;
+    width: 100%;
+    padding-right: 1%;
+    padding-bottom:0.2%;
+    color: white;
+  }
+  
+  #nav-item {
+    color:white;
+    padding-top:0%;
+    text-align: center;
+  }
+  
+  #ziggurat-logo {
+     color:white;
+     background-color:inherit;
+     width: auto;
+     margin-top:0.4%;
+     padding-right: 1%;
+     padding-top: 10px;
+     padding-bottom: 2.5%;
+     border: 1px solid #373a47;
+     left:0%;
+     justify-content: center;
+     font-size: 0.88em;
+     position: fixed;
+  }
+  
