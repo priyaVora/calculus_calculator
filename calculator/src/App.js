@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setRoute} from './action.js';
-import Navigation from './componnents/Navigation/Navigation';
-import Calculation from './componnents/Calculation/Calculation';
+import Navigation from './components/Navigation/Navigation';
+import Calculation from './components/Calculation/Calculation';
 import './App.css';
 
 const mapStateToProps = (state) => {
@@ -19,6 +19,7 @@ const mapDispatchToProps = (dispatch) => {
 
 class App extends Component {
 
+ 
   render() {
     const {route, changeRoute} = this.props;
     return (
@@ -26,7 +27,7 @@ class App extends Component {
       <div className="App">
         <Navigation route={route} changeRoute={changeRoute}/>
       </div>
-        <Calculation/>
+        <Calculation route={route}/>
       </div>
     );
   }

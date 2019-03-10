@@ -3,40 +3,40 @@ import {
     FUNCTIONS_AND_LIMIT, 
     DERIVATIVES_OF_FUNCTIONS, 
     USE_OF_DERIVATIVES, 
-    THE_INTREGRALS, 
+    THE_INTEGRALS, 
     DESMOS_GRAPH
 } from './constants.js';
 
 
 const initialStateRoute = {
-    currentRoute: 'home'
+    currentRoute: 'power'
   }
 
   export function changeRoute(state = initialStateRoute, action = {}) {
     switch (action.type) {
       case HOME:
         return Object.assign({}, state, {
-          route: HOME
+          currentRoute: 'HOME'
         })
         case FUNCTIONS_AND_LIMIT:
         return Object.assign({}, state, {
-          route: HOME
+          currentRoute: FUNCTIONS_AND_LIMIT
         })
         case DERIVATIVES_OF_FUNCTIONS:
         return Object.assign({}, state, {
-          route: DERIVATIVES_OF_FUNCTIONS
+          currentRoute: DERIVATIVES_OF_FUNCTIONS
         })
         case USE_OF_DERIVATIVES:
         return Object.assign({}, state, {
-          route: USE_OF_DERIVATIVES
+          currentRoute: USE_OF_DERIVATIVES
         })
-        case THE_INTREGRALS:
+        case THE_INTEGRALS:
         return Object.assign({}, state, {
-          route: THE_INTREGRALS
+          currentRoute: THE_INTEGRALS
         })
         case DESMOS_GRAPH:
         return Object.assign({}, state, {
-          route: DESMOS_GRAPH
+          currentRoute: DESMOS_GRAPH
         })
       default:
         return state

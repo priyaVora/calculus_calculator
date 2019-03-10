@@ -3,12 +3,18 @@ import {
     FUNCTIONS_AND_LIMIT, 
     DERIVATIVES_OF_FUNCTIONS, 
     USE_OF_DERIVATIVES, 
-    THE_INTREGRALS, 
+    THE_INTEGRALS, 
     DESMOS_GRAPH
 } from './constants.js';
 
 export const setRoute = (routeType) => (dispatch) => {
     switch (routeType) {
+        case 'HOME':
+        dispatch({
+          type: HOME,
+          payload: HOME,
+        })
+        break;
       case 'FUNCTIONS_AND_LIMIT':
         dispatch({
           type: FUNCTIONS_AND_LIMIT,
@@ -27,10 +33,10 @@ export const setRoute = (routeType) => (dispatch) => {
           payload: USE_OF_DERIVATIVES,
         })
         break;
-        case 'THE_INTREGRALS':
+        case 'THE_INTEGRALS':
         dispatch({
-          type: THE_INTREGRALS,
-          payload: THE_INTREGRALS,
+          type: THE_INTEGRALS,
+          payload: THE_INTEGRALS,
         })
         break;
         case 'DESMOS_GRAPH':
