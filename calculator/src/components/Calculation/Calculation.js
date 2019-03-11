@@ -133,9 +133,21 @@ class Calculation extends React.Component {
     return result;
   }
 
-
+  //need to have space between the two product rule terms
   productRule(term) { 
+    console.log(term);
+    var u = term.split(' ')[0];
+    var v = term.split(' ')[1];
+    console.log("U : " + u);
+    console.log("V : " + v);
 
+    var uPrime = this.powerRule(u);
+    var vPrime = this.powerRule(v);
+    console.log("U prime : " + uPrime);
+    console.log("V prime: " + vPrime);
+    console.log("\nProduct Rule Equation: " + "(u)(v') + (v)(u')");
+    console.log("Show Work: " + "(" + u + ")(" + vPrime + ") + " + "(" + v + ")(" + uPrime + ")");
+    return term;
   }
 
   quotient_rule(term) { 
