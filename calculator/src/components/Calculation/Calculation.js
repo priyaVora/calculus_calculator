@@ -125,7 +125,7 @@ class Calculation extends React.Component {
       console.log("New Coefficient " + newCoeff);
       console.log("\nShow work: " + "(" + coeff + ")(" + exponent + ")" + "x^" + "(" + exponent + "-1)");
       
-      result = "Result: " + newCoeff + "x^" + poweredDownExponent;
+      result = newCoeff + "x^" + poweredDownExponent;
       console.log(result);
     }
     
@@ -136,6 +136,23 @@ class Calculation extends React.Component {
 
   productRule(term) { 
 
+  }
+
+  quotient_rule(term) { 
+    console.log(term);
+    var u = term.split(' ')[0];
+    var v = term.split(' ')[1];
+    console.log("U : " + u);
+    console.log("V : " + v);
+
+    var uPrime = this.powerRule(u);
+    var vPrime = this.powerRule(v);
+    console.log("U prime : " + uPrime);
+    console.log("V prime: " + vPrime);
+ 
+    console.log("Quotient Rule Equation: " + "(vu' + uv')/(v^2)");
+    console.log("Show Work: [(" + v +")(" + uPrime + ") + (" + u + ")(" + vPrime + ")]/(" + v + ")^2");
+    return term;
   }
 
  
@@ -158,7 +175,7 @@ class Calculation extends React.Component {
       case "POWERRULE":  
         return "Here is the code: " + this.powerRule("7x^3");
       default:      
-      return "Here is the code: " + this.powerRule("4x^2.5");
+      return "Here is the code: " + this.quotient_rule("x^3 x^5");
   }
 }
 
