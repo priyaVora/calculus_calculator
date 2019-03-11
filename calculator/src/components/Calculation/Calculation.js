@@ -125,7 +125,7 @@ class Calculation extends React.Component {
       console.log("New Coefficient " + newCoeff);
       console.log("\nShow work: " + "(" + coeff + ")(" + exponent + ")" + "x^" + "(" + exponent + "-1)");
       
-      result = "Result: " + newCoeff + "x^" + poweredDownExponent;
+      result = newCoeff + "x^" + poweredDownExponent;
       console.log(result);
     }
     
@@ -133,9 +133,21 @@ class Calculation extends React.Component {
     return result;
   }
 
-
+  //need to have space between the two product rule terms
   productRule(term) { 
+    console.log(term);
+    var u = term.split(' ')[0];
+    var v = term.split(' ')[1];
+    console.log("U : " + u);
+    console.log("V : " + v);
 
+    var uPrime = this.powerRule(u);
+    var vPrime = this.powerRule(v);
+    console.log("U prime : " + uPrime);
+    console.log("V prime: " + vPrime);
+    console.log("\nProduct Rule Equation: " + "(u)(v') + (v)(u')");
+    console.log("Show Work: " + "(" + u + ")(" + vPrime + ") + " + "(" + v + ")(" + uPrime + ")");
+    return term;
   }
 
  
@@ -158,7 +170,7 @@ class Calculation extends React.Component {
       case "POWERRULE":  
         return "Here is the code: " + this.powerRule("7x^3");
       default:      
-      return "Here is the code: " + this.powerRule("4x^2.5");
+      return "Here is the code: " + this.productRule("x^2 x^3");
   }
 }
 
