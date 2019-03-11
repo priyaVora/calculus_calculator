@@ -9,6 +9,7 @@ import Homepage from '../Homepage/Homepage';
 import './Calculation.css';
 import 'tachyons';
 
+
 class Calculation extends React.Component { 
   constructor(props) {
     super(props);
@@ -71,23 +72,46 @@ class Calculation extends React.Component {
         var denominator = term.split('/')[1];
         console.log("Denominator: " + denominator);
 
-        var denomExponent = denominator.split('^')[1];
-        console.log("Denom: " + denomExponent);
-        //check if the denominator has negative power 
-        //---make the power positive and move it to the numerator
+        if(denominator.includes('^')) { 
+          console.log("DOES CONTAIN EXPONENT");
+          var denomExponent = denominator.split('^')[1];
 
-        //check if the denominator has positive power
-        //---make the power negative and move it to the numerator
-       if(denomExponent < 0) { 
-          console.log("Negative exponent change: " + numerator + "x^" + (-1) * denomExponent);
-       } else if(denomExponent > 0) { 
-          console.log("Positive exponent change: " + numerator + "x^" + (-1) * denomExponent);
-       }
+            console.log("Denom: " + denomExponent);
+            //check if the denominator has negative power 
+            //---make the power positive and move it to the numerator
 
-       var changedTerm = "" + (numerator + "x^" + (-1) * denomExponent);
-       console.log(changedTerm);
+            //check if the denominator has positive power
+            //---make the power negative and move it to the numerator
+          if(denomExponent < 0) { 
+              console.log("Negative exponent change: " + numerator + "x^" + (-1) * denomExponent);
+          } else if(denomExponent > 0) { 
+              console.log("Positive exponent change: " + numerator + "x^" + (-1) * denomExponent);
+          }
 
-      this.powerRule(changedTerm);
+          var changedTerm = "" + (numerator + "x^" + (-1) * denomExponent);
+          console.log(changedTerm);
+
+          this.powerRule(changedTerm);
+        } else { 
+          console.log("DOES NOT CONTAIN EXPONENT");
+          if(!(denominator.includes("^"))) { 
+            var grabbedCoeff = "";
+            grabbedCoeff = denominator.split('x')[0];
+            console.log("Grabbed = " + grabbedCoeff);
+            if(grabbedCoeff == "") {
+              grabbedCoeff = 1;
+            }
+            console.log("Grabbed = " + grabbedCoeff);
+            console.log("CHANGED DENOM: " + denominator + "^" + (-1));
+            var changeDenom = denominator + "^" + (-1)*1;
+            console.log("NUMERATOR : " + numerator);
+            
+            var changedTerm = "" + ((numerator/grabbedCoeff) + "x^" + (-1));
+            console.log(changedTerm);
+            this.powerRule(changedTerm);
+          }
+        }
+  
     } else { 
       console.log("Term: " + term);
       console.log("Base: " + this.findBase(term));
@@ -100,12 +124,15 @@ class Calculation extends React.Component {
       console.log("New Exponent: " + poweredDownExponent);
       console.log("New Coefficient " + newCoeff);
       console.log("\nShow work: " + "(" + coeff + ")(" + exponent + ")" + "x^" + "(" + exponent + "-1)");
+      
       result = "Result: " + newCoeff + "x^" + poweredDownExponent;
       console.log(result);
     }
-  
+    
+
     return result;
   }
+
 
   productRule(term) { 
 
@@ -131,7 +158,7 @@ class Calculation extends React.Component {
       case "POWERRULE":  
         return "Here is the code: " + this.powerRule("7x^3");
       default:      
-      return "Here is the code: " + this.powerRule("3x^4");
+      return "Here is the code: " + this.powerRule("4x^2.5");
   }
 }
 
