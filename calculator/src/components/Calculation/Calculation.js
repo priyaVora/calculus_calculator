@@ -44,6 +44,7 @@ class Calculation extends React.Component {
   cot(value) {
    return 1/Math.tan(value);
   }
+
     findBase(term) { 
       return (term.split('^')[0]);
     }
@@ -98,17 +99,17 @@ class Calculation extends React.Component {
             var grabbedCoeff = "";
             grabbedCoeff = denominator.split('x')[0];
             console.log("Grabbed = " + grabbedCoeff);
-            if(grabbedCoeff == "") {
+            if(grabbedCoeff === "") {
               grabbedCoeff = 1;
             }
             console.log("Grabbed = " + grabbedCoeff);
             console.log("CHANGED DENOM: " + denominator + "^" + (-1));
-            var changeDenom = denominator + "^" + (-1)*1;
+            // var changeDenom = denominator + "^" + (-1)*1;
             console.log("NUMERATOR : " + numerator);
             
-            var changedTerm = "" + ((numerator/grabbedCoeff) + "x^" + (-1));
-            console.log(changedTerm);
-            this.powerRule(changedTerm);
+            var changedTerm2 = "" + ((numerator/grabbedCoeff) + "x^" + (-1));
+            console.log(changedTerm2);
+            this.powerRule(changedTerm2);
           }
         }
   
@@ -123,7 +124,7 @@ class Calculation extends React.Component {
 
       console.log("New Exponent: " + poweredDownExponent);
       console.log("New Coefficient " + newCoeff);
-      console.log("\nShow work: " + "(" + coeff + ")(" + exponent + ")" + "x^" + "(" + exponent + "-1)");
+      // console.log("\nShow work: " + "(" + coeff + ")(" + exponent + ")" + "x^" + "(" + exponent + "-1)");
       
       result = newCoeff + "x^" + poweredDownExponent;
       console.log(result);
@@ -133,21 +134,9 @@ class Calculation extends React.Component {
     return result;
   }
 
-  //need to have space between the two product rule terms
-  productRule(term) { 
-    console.log(term);
-    var u = term.split(' ')[0];
-    var v = term.split(' ')[1];
-    console.log("U : " + u);
-    console.log("V : " + v);
 
-    var uPrime = this.powerRule(u);
-    var vPrime = this.powerRule(v);
-    console.log("U prime : " + uPrime);
-    console.log("V prime: " + vPrime);
-    console.log("\nProduct Rule Equation: " + "(u)(v') + (v)(u')");
-    console.log("Show Work: " + "(" + u + ")(" + vPrime + ") + " + "(" + v + ")(" + uPrime + ")");
-    return term;
+  productRule(term) { 
+
   }
 
   quotient_rule(term) { 
@@ -162,12 +151,10 @@ class Calculation extends React.Component {
     console.log("U prime : " + uPrime);
     console.log("V prime: " + vPrime);
  
-    console.log("Quotient Rule Equation: " + "(vu' + uv')/(v^2)");
+    // console.log("Quotient Rule Equation: " + "(vu' + uv')/(v^2)");
     console.log("Show Work: [(" + v +")(" + uPrime + ") + (" + u + ")(" + vPrime + ")]/(" + v + ")^2");
     return term;
   }
-
- 
   
   changeCalculation(route) { 
     console.log(route)
@@ -200,4 +187,3 @@ render() {
   }
 } 
 export default Calculation;
-;

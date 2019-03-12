@@ -9,7 +9,7 @@ import {
 
 
 const initialStateRoute = {
-    currentRoute: 'power'
+    currentRoute: FUNCTIONS_AND_LIMIT
   }
 
   export function changeRoute(state = initialStateRoute, action = {}) {
